@@ -1,4 +1,6 @@
-const swaggerAutogen = require("swagger-autogen")();
+import swaggerAutogen from "swagger-autogen";
+
+const swaggerAutogenInstance = swaggerAutogen();
 
 const doc = {
   info: {
@@ -9,7 +11,8 @@ const doc = {
   basePath: "/",
   schemes: ["https", "http"],
 };
-const outputFile = "./swagger.json";
-const endpointsFiles = ["./server.js"];
 
-swaggerAutogen(outputFile, endpointsFiles, doc);
+const outputFile: string = "./swagger.json";
+const endpointsFiles: string[] = ["./server.ts"];
+
+swaggerAutogenInstance(outputFile, endpointsFiles, doc);
